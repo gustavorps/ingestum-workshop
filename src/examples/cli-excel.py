@@ -7,10 +7,6 @@ from ingestum import pipelines
 from ingestum import transformers
 from ingestum.utils import stringify_document
 
-import custom_transformers as custom_transformers
-
-def map_content_type(content):
-    return (int(content[0]), content[1], content[2], content[3], content[4], content[5], int(content[6]), content[7], int(content[8]))
 
 def generate_pipeline():
     pipeline = pipelines.base.Pipeline(
@@ -34,7 +30,6 @@ def generate_pipeline():
                         expression='',
                         replacement='HARD_CODE_STRING',
                     ),
-                    # custom_transformers.TabuleMapTypesTransformer(func=map_content_type)
                 ]
             )
         ]

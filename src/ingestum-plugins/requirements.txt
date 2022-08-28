@@ -1,0 +1,5 @@
+git+https://gitlab.com/sorcero/community/ingestum.git@master#egg=ingestum
+click==7.1.2
+black==20.8b1
+pyflakes==2.2.0
+pytest==6.2.4

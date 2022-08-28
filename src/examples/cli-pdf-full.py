@@ -204,5 +204,5 @@ if __name__ == "__main__":
 
 
 if __name__ == "__main__":
-    # python src/examples/cli-text.py ingest src/ingestum/tests/data/test.text
+    # python src/examples/cli-pdf-full.py ingest src/ingestum/tests/data/test.pdf 1 3
     main()

@@ -20,6 +20,7 @@
 	"features": {
 		"git": "latest",
 		"python": "3.8",
-		"java": "lts"
+		"java": "lts",
+		"jupyter": "latest"
 	}
 }

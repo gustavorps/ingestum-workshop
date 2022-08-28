@@ -1,5 +1,6 @@
 import argparse
 import tempfile
+import pathlib
 
 from ingestum import engine
 from ingestum import manifests
@@ -32,14 +33,14 @@ def generate_pipeline():
     return pipeline
 
 
-def generate_manifest(local_path, destination):
+def generate_manifest(local_path: pathlib.Path, destination):
     manifest = manifests.base.Manifest(
         sources=[
             manifests.sources.Text(
                 id='id',
                 pipeline='default',
                 location=manifests.sources.locations.Local(
-                    path=local_path
+                    path=str(local_path.absolute())
                 ),
                 destination=manifests.sources.destinations.Local(
                     directory=destination.name
@@ -79,11 +80,11 @@ def main():
     if args.command == 'export':
         output = generate_pipeline()
     else:
-        output = ingest(args.path)
+        output = ingest(pathlib.Path(args.path))
 
     print(stringify_document(output))
 
 
 if __name__ == "__main__":
-    # python src/examples/cli-text.py ingest src/ingestum/tests/data/test.text
+    # python src/examples/cli-text.py ingest src/ingestum/tests/data/test.txt
     main()
